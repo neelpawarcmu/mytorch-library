@@ -1,3 +1,5 @@
+# Introduction
+
 This repository contains a Torch library built using Python and NumPy as part of Deep Learning at CMU. As part of this course, this involves designing main parts of PyTorch from scratch. The main goal is to understand the complex mathematical computations, modularity, structure and usage of PyTorch.
 
 Further use of PyTorch for solving big data problems by implementing research papers can be found here:
@@ -6,6 +8,8 @@ Further use of PyTorch for solving big data problems by implementing research pa
 3. [Utterance to Phoneme Mapping](https://github.com/neelpawarcmu/deep-learning-course-projects/blob/main/Utterance_to_Phoneme_Mapping_using_Seq2Seq.ipynb)
 4. Attention-based End-to-End Speech-to-Text Deep Neural Network (to be linked)
 
+
+# Components
 MyTorch includes the following components:
 
 * `activation.py`: Contains activation functions (currently Tanh implemented) and logic for their backprop.
@@ -21,7 +25,8 @@ CTC is used when we don't know how the input aligns with the output (how the cha
 * `loss.py`: Implements softmax cross entropy loss.
 * `search.py`: Implements greedy and beam search. Greedy search greedily picks the label with maximum probability at each time step to compose the output sequence. Beam search is a more effective decoding technique to obtain a sub-optimal result out of sequential decisions, striking a balance between a greedy search and an exponential exhaustive search by keeping a beam of top-k scored sub-sequences at each time step (BeamWidth). In the context of CTC, we would also consider a blank symbol and repeated characters, and merge the scores for several equivalent sub-sequences.
 
-Library usage:
+
+# Library usage
 Examples
 * `create_character_predictor.py` - Character predictor using `gru_cell.py`,  `linear.py`.
 * `create_cnn.py` - Create simple CNN using `conv.py`, `linear.py`.
@@ -30,4 +35,6 @@ Examples
 *  `mlp_scan.py` - Create simple MLP using `linear.py` to scan image and contrast results and required computation with `create_cnn.py`.
 (In addition, all of the above examples use activations and loss functions found in `activations.py` and `loss.py`)
 
+
+# Feedback
 Please feel free to leave feedback via a PR. Thank you!
