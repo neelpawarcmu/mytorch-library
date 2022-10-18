@@ -89,8 +89,7 @@ class GRUCell(object):
 
         #IDL lec15 slide22 + hw3p1 writeup pg 9 
 
-        # # #slides
-        # # #block 1
+        #block1
         term1 = np.dot(self.Wrh, h) + self.bir            # (h,h) dot (h,) + (h,) = (h,)
         term2 = np.dot(self.Wrx, x) + self.bhr            # (h,d) dot (d,) + (h,) = (h,)
         self.r = self.r_act(term1 + term2)                # activation(h,) = (h,)
@@ -119,7 +118,7 @@ class GRUCell(object):
         assert self.r.shape == (self.h,)
         assert self.z.shape == (self.h,)
         assert self.n.shape == (self.h,)
-        assert self.h_t.shape == (self.h,) # h_t is the final output of you GRU cell.
+        assert self.h_t.shape == (self.h,) # h_t is the final output of GRU cell.
 
         return self.h_t
 
@@ -150,8 +149,6 @@ class GRUCell(object):
         #    when computing self.dWs...
         # 2) Transpose all calculated dWs...
         # 3) Compute all of the derivatives
-        # 4) Know that the autograder grades the gradients in a certain order, and the
-        #    local autograder will tell you which gradient you are currently failing.
 
         # Make sure the shapes of the calculated dWs and dbs  match the
         # initalized shapes accordingly

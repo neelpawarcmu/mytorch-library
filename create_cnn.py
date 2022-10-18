@@ -13,8 +13,8 @@ class CNN(object):
 
     """
     A simple convolutional neural network
-    Here you build implement a 3 layer CNN architecture
-    You need to specify the detailed architecture in function "get_cnn_model" below
+    Here we build implement a 3 layer CNN architecture
+    We need to specify the detailed architecture in function "get_cnn_model" below
     """
 
     def __init__(self, input_width, num_input_channels, num_channels, kernel_sizes, strides,
@@ -50,7 +50,7 @@ class CNN(object):
         # self.linear_layer         (Linear)      = Linear(???)
         # <---------------------
 
-        print('\n--------------------Neels tests---------------------\n')
+        print('\n--------------------basic tests---------------------\n')
         print('input_width', input_width)
         print('num_input_channels', num_input_channels)
         print('num_channels', num_channels)

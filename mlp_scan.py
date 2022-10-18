@@ -24,11 +24,10 @@ class CNN_SimpleScanningMLP():
         self.layers = [self.conv1, self.relu1, self.conv2, self.relu2, self.conv3, self.flatten]
 
     def __call__(self, x):
-        # Do not modify this method
         return self.forward(x)
 
     def init_weights(self, weights):
-        # Load the weights for your CNN from the MLP Weights given
+        # Load the weights for CNN from the MLP Weights given
         # w1, w2, w3 contain the weights for the three layers of the MLP
         # Load them appropriately into the CNN
 
@@ -65,7 +64,6 @@ class CNN_SimpleScanningMLP():
 
     def backward(self, delta):
         """
-        Do not modify this method
 
         Argument:
             delta (np.array): (batch size, out channel, out width)
@@ -91,12 +89,11 @@ class CNN_DistributedScanningMLP():
         self.layers = [self.conv1, self.relu1, self.conv2, self.relu2, self.conv3, self.flatten]
 
     def __call__(self, x):
-        # Do not modify this method
         return self.forward(x)
 
 
     def init_weights(self, weights):
-        # Load the weights for your CNN from the MLP Weights given
+        # Load the weights for CNN from the MLP Weights given
         # w1, w2, w3 contain the weights for the three layers of the MLP
         # Load them appropriately into the CNN
 

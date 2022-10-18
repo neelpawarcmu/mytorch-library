@@ -14,13 +14,15 @@ class RNNPhonemeClassifier(object):
         self.hidden_size = hidden_size
         self.num_layers = num_layers
 
-        ### TODO: Understand then uncomment this code :)
+        # Create RNN cells 
         self.rnn = [
             RNNCell(input_size, hidden_size)
             if i == 0
             else RNNCell(hidden_size, hidden_size)
             for i in range(num_layers)
         ]
+
+        # final MLP layer for classifier
         self.output_layer = Linear(hidden_size, output_size)
 
         # store hidden states at each time step, [(seq_len+1) * (num_layers, batch_size, hidden_size)]
@@ -79,15 +81,15 @@ class RNNPhonemeClassifier(object):
         self.x = x
         self.hiddens.append(hidden.copy())
 
-        # (More specific pseudocode may exist in lecture slides)
+        # (More specific pseudocode in lecture slides)
         # Iterate through the sequence
-        #   Iterate over the length of your self.rnn (through the layers)
+        #   Iterate over the length of self.rnn (through the layers)
         #       Run the rnn cell with the correct parameters and update
         #       the parameters as needed. Update hidden.
         #   Similar to above, append a copy of the current hidden array to the hiddens list
 
         # Get the outputs from the last time step using the linear layer and return it
-        # logits =
+        # logits output expected.
         # <--------------------------
         for t in range(seq_len):
             x_t = self.x[:,t,:] 
@@ -126,7 +128,7 @@ class RNNPhonemeClassifier(object):
         """
 
         * Notes:
-        * More specific pseudocode may exist in lecture slides and a visualization
+        * More specific pseudocode in lecture slides and a visualization
           exists in the writeup.
         * WATCH out for off by 1 errors due to implementation decisions.
 
@@ -138,7 +140,7 @@ class RNNPhonemeClassifier(object):
                 * Use dh and hiddens to get the other parameters for the backward method
                     (Recall that hiddens has an extra initial hidden state)
                 * Update dh with the new dh from the backward pass of the rnn cell
-                * If you aren't at the first layer, you will want to add
+                * If we aren't at the first layer, we want to add
                   dx to the gradient from l-1th layer.
 
         * Normalize dh by batch_size since initial hidden states are also treated

@@ -10,8 +10,8 @@ def GreedySearch(SymbolSets, y_probs):
                 all the symbols (the vocabulary without blank)
 
     y_probs: (# of symbols + 1, Seq_length, batch_size)
-            Your batch size for part 1 will remain 1, but if you plan to use your
-            implementation for part 2 you need to incorporate batch_size.
+            Our batch size is 1, but if to use thiss implementation on a search
+            implementation for we need to incorporate batch_size.
 
     Returns
     ------
@@ -68,8 +68,8 @@ def BeamSearch(SymbolSets, y_probs, BeamWidth):
                 all the symbols (the vocabulary without blank)
 
     y_probs: (# of symbols + 1, Seq_length, batch_size)
-            Your batch size for part 1 will remain 1, but if you plan to use your
-            implementation for part 2 you need to incorporate batch_size.
+            Our batch size is 1, but if to use thiss implementation on a search
+            implementation for we need to incorporate batch_size.
 
     BeamWidth: int
                 Width of the beam.

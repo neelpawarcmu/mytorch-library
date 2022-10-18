@@ -10,8 +10,7 @@ class CharacterPredictor(object):
     """CharacterPredictor class.
 
     This is the neural net that will run one timestep of the input
-    You only need to implement the forward method of this class.
-    This is to test that your GRU Cell implementation is correct when used as a GRU.
+    This is to test that our GRU Cell implementation is correct when used as a GRU.
 
     """
 
@@ -25,7 +24,6 @@ class CharacterPredictor(object):
     def init_rnn_weights(
         self, Wrx, Wzx, Wnx, Wrh, Wzh, Wnh, bir, biz, bin, bhr, bhz, bhn
     ):
-        # DO NOT MODIFY
         self.rnn.init_weights(
             Wrx, Wzx, Wnx, Wrh, Wzh, Wnh, bir, biz, bin, bhr, bhz, bhn
         )

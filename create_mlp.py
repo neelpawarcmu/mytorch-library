@@ -45,7 +45,7 @@ class MLP(object):
         self.lr = lr
         self.momentum = momentum
         # <---------------------
-        # Initialize and add all your linear layers into the list 'self.linear_layers'
+        # Initialize and add all linear layers into the list 'self.linear_layers'
 
         #create single array of all node counts for linear layers (linear layers => i/p, hidden, o/p)
         layerWise_nodes = []
@@ -70,7 +70,7 @@ class MLP(object):
         Return:
             out (np.array): (batch size, output_size)
         """
-        # Complete the forward pass through your entire MLP. 
+        # Complete the forward pass through entire MLP. 
         # loop over layers till all linear layers are done
         for i in range(self.nlayers):
             #affine combination, linear layer
@@ -90,8 +90,8 @@ class MLP(object):
         return y
 
     def zero_grads(self):
-        # Use numpyArray.fill(0.0) to zero out your backpropped derivatives in each
-        # of your linear and batchnorm layers.
+        # Use numpyArray.fill(0.0) to zero out backpropped derivatives in each
+        # of the linear and batchnorm layers.
         for i in range(self.nlayers):
             self.linear_layers[i].dW.fill(0.0)
             self.linear_layers[i].db.fill(0.0)
@@ -103,9 +103,8 @@ class MLP(object):
     def step(self):
         # Apply a step to the weights and biases of the linear layers.
         # Apply a step to the weights of the batchnorm layers.
-        # (You will add momentum later in the assignment to the linear layers only
-        # , not the batchnorm layers)
-        # Update weights and biases here
+        # (Later add momentum to the linear layers only, not the batchnorm layers)
+        # Update the weights and biases here
 
         # step size is either the negative of gradient or the positive momentum
         for i in range(len(self.linear_layers)):
@@ -147,7 +146,7 @@ class MLP(object):
             delta = delta * der_activation
 
             # derivative at batchnorm
-            # no derivative if bn layer absent or if testing is on
+            # no derivative if bn layer absent or if in testing mode
             if i < self.num_bn_layers and self.train_mode:
                 delta = self.bn_layers[i].backward(delta)
             
@@ -169,43 +168,3 @@ class MLP(object):
 
     def eval(self):
         self.train_mode = False
-
-#You can complete this function to train your network.
-def get_training_stats(mlp, dset, nepochs, batch_size):
-
-    train, val, _ = dset
-    trainx, trainy = train
-    valx, valy = val
-
-    idxs = np.arange(len(trainx))
-
-    training_losses = np.zeros(nepochs)
-    training_errors = np.zeros(nepochs)
-    validation_losses = np.zeros(nepochs)
-    validation_errors = np.zeros(nepochs)
-
-    # Setup 
-
-    for e in range(nepochs):
-
-        # Per epoch setup 
-
-        for b in range(0, len(trainx), batch_size):
-
-            pass  # Remove this line when you start implementing this
-            # Train 
-
-        for b in range(0, len(valx), batch_size):
-
-            pass  # Remove this line when you start implementing this
-            # Val 
-
-        # Accumulate data
-
-    # Cleanup 
-
-    # Return results 
-
-    # return (training_losses, training_errors, validation_losses, validation_errors)
-
-    raise NotImplemented
